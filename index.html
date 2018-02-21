@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <meta charset='utf-8' />
@@ -28,8 +28,26 @@ var map = new mapboxgl.Map({
 
 map.addControl(new MapboxDirections({
     accessToken: mapboxgl.accessToken
-}), 'top-left');
+}), 'top-right');
 </script>
 
 </body>
-</html>
+</html> -->
+
+
+
+var mapboxgl = require('mapbox-gl');
+var MapboxDirections = require('@mapbox/mapbox-gl-directions');
+
+var directions = new MapboxDirections({
+  accessToken: 'YOUR-MAPBOX-ACCESS-TOKEN',
+  unit: 'metric',
+  profile: 'mapbox/cycling'
+});
+
+var map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/mapbox/streets-v9'
+});
+
+map.addControl(directions, 'top-left');
