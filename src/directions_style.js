@@ -7,7 +7,7 @@ const style = [{
     'line-join': 'round'
   },
   'paint': {
-    'line-color': '#bbb',
+    'line-color': '#fff',
     'line-width': 4
   },
   'filter': [
@@ -24,7 +24,7 @@ const style = [{
     'line-join': 'round'
   },
   'paint': {
-    'line-color': '#2d5f99',
+    'line-color': '#fff',
     'line-width': 12
   },
   'filter': [
@@ -46,9 +46,9 @@ const style = [{
       'type': 'categorical',
       'default': '#4882c5',
       'stops': [
-        ['unknown', '#4882c5'],
-        ['low', '#4882c5'],
-        ['moderate', '#f09a46'],
+        ['unknown', '#fff'],
+        ['low', '#fff'],
+        ['moderate', '#fff'],
         ['heavy', '#e34341'],
         ['severe', '#8b2342']
       ]
@@ -148,7 +148,7 @@ const style = [{
   'source': 'directions',
   'paint': {
     'circle-radius': 18,
-    'circle-color': '#8a8bc9'
+    'circle-color': '#fff'
   },
   'filter': [
     'all',
