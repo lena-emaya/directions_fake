@@ -1,36 +1,35 @@
-Mapbox GL Directions
----
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Display driving directions</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
 
-A full featured directions plugin for [Mapbox GL JS](https://github.com/mapbox/mapbox-gl-js) using the [Mapbox Directions API](https://www.mapbox.com/directions/). Quickly add UI to display driving, cycling, or walking directions on the map. The Mapbox Directions API is powered by the [OSRM](http://project-osrm.org/) routing engine and open data from the [OpenStreetMap](https://www.openstreetmap.org/) project.
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.css' type='text/css' />
+<div id='map'></div>
 
-For directions functionality in native mobile and desktop applications, see [Mapbox Android Services](https://github.com/mapbox/mapbox-java/), [MapboxDirections.swift](https://github.com/mapbox/MapboxDirections.swift/), and [MapboxNavigation.swift](https://github.com/mapbox/MapboxNavigation.swift/).
-
-### Usage
-
-```javascript
-var mapboxgl = require('mapbox-gl');
-var MapboxDirections = require('@mapbox/mapbox-gl-directions');
-
-var directions = new MapboxDirections({
-  accessToken: 'YOUR-MAPBOX-ACCESS-TOKEN',
-  unit: 'metric',
-  profile: 'mapbox/cycling'
-});
-
+<script>
+mapboxgl.accessToken = 'undefined';
 var map = new mapboxgl.Map({
-  container: 'map',
-  style: 'mapbox://styles/mapbox/streets-v9'
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9',
+    center: [-79.4512, 43.6568],
+    zoom: 13
 });
 
-map.addControl(directions, 'top-left');
-```
+map.addControl(new MapboxDirections({
+    accessToken: mapboxgl.accessToken
+}), 'top-left');
+</script>
 
-Live example: https://www.mapbox.com/mapbox-gl-js/example/mapbox-gl-directions/
-
-### Deeper dive
-
-See [API.md](https://github.com/mapbox/mapbox-gl-directions/blob/master/API.md) for complete reference.
-
-### Contributing
-
-See [CONTRIBUTING.md](https://github.com/mapbox/mapbox-gl-directions/blob/master/CONTRIBUTING.md).
+</body>
+</html>
